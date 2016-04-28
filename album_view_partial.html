@@ -1,0 +1,16 @@
+<div class="page-header"><h2>{{album_name | uppercase}}</h2></div>
+  
+<div class="alert alert-danger" role="alert" ng-show="load_error_text">{{load_error_text}}</div>
+   
+<div class="row" >
+  <div class="col-sm-6 col-md-4" ng-repeat="photo in photos">
+    <div class="thumbnail">
+      <img src="../../img/{{photo.filename}}" alt="...">
+      <div class="caption">
+        <h3>{{photo.date}}</h3>
+        <p>{{photo.des}}</p>
+        
+      </div>
+    </div>
+  </div>
+

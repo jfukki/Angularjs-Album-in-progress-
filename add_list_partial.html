@@ -1,0 +1,72 @@
+<div class="container" >
+   
+                <div ng-include="'./user.html'"></div>
+                
+                    
+            <div class="row" >
+             <div class="form-group" >
+                 <input type="text" ng-model="album" size="30" placeholder="Type to search..."> 
+                  <div class="page-header"><h2>There are {{albums.length}} albums to view</h2></div>
+            <br>
+       </div>
+          
+           <div class="col-md-4" ng-repeat="album in albums | filter:{title:album}">
+               <div class="panel panel-primary" id="panel">
+  <div class="panel-heading">
+  <div style="float:right">
+       {{album.date}}
+  </div>
+ <!-- <a href="/index.html#/album/{{album.name}}"> 
+   {{album.title | uppercase}}
+  </a>
+-->
+ 
+ <a href="/index.html#/album/{{album.name}}">
+     {{album.title | uppercase}}
+ </a>
+  
+  </div>
+  <div class="panel-body">
+   <h3>{{album.name}}</h3>
+    {{album.des}}
+  </div>
+</div>
+           </div>
+       </div>
+       
+     
+     <div class="row">
+           <div class="col-md-12">
+               <div class="panel panel-info">
+          <div class="panel-heading">
+          
+               <div style="float:right">
+             <div class="form-group">
+                  <label for="date" class="control-label">Date:</label>
+                  <input type="date" placeholder="date" ng-model="adding_album.date">
+             </div> 
+              </div>
+              <div class="form-group">
+                  <label for="title" class="control-label">Title:</label>
+                  <input type="text" placeholder="Title" size="30" ng-model="adding_album.title" id="title">      
+              </div>
+            
+          </div>
+          <div class="panel-body">
+            <div class="form-group">
+                <label for="name" class="control-label">Name:</label>
+                <input type="text" placeholder="NAME" ng-model="adding_album.name" id="name">
+            </div>
+            <div class="form-group">
+                    <label for="des" class="control-label">Description:</label>
+                    <textarea name="des" id="des" cols="50" rows="6" class="form-control" ng-model="adding_album.des" placeholder="Description...."></textarea>
+                
+            </div>
+            <button class="btn btn-lg btn-info" ng-click="addAlbum(adding_album)">Add New Album</button>
+          </div>
+        </div>
+           </div>
+       </div>
+   
+     
+       </div>
